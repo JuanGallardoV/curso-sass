@@ -1,0 +1,39 @@
+@use 'mixinsfunc';
+
+/* Los mixin no necesariamente se deben crear en partials, sino que tambien pueden s er creados en el mismo archivo, aunque no es lo ideal */
+@mixin arreglar-imagen {
+    background: {
+        size: cover;
+        repeat: no-repeat;
+        position: center;
+    };
+}
+
+.hero {
+    
+    &__container {
+        height: calc(100vh - 70px);
+        background-image: linear-gradient(#000000b5, #000000b9), url('../img/bg.png');
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        /* Para usar un mixin, primero referenciamos de donde lo sacamos */
+        @include mixinsfunc.crear-flexbox(center);
+        @include arreglar-imagen;
+    }
+
+    &__texts {
+        width: 90%;
+        color: #fff;
+    }
+
+    &__title {
+        // font-size: 3rem;
+        font-size: mixinsfunc.pixeles-rem(40);
+        margin-bottom: mixinsfunc.pixeles-rem(10);
+    }
+
+    &__paragraph {
+        font-size: mixinsfunc.pixeles-rem(18);
+    }
+}

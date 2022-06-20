@@ -1,0 +1,22 @@
+/* Para reutilizar código de css que se repite mucho, se puede crear un mixin */
+// @mixin crear-flexbox {
+//     display: flex;
+//     align-items: center;
+//     justify-items: center;
+// }
+/* Para ciertos calculos, es necesario importar un modulo integrado de sass, math */
+@use 'sass:math';
+
+/* Permitiendote hasta recibir variables, similar a una función */
+@mixin crear-flexbox($justify) {
+    display: flex;
+    align-items: center;
+    justify-items: $justify;
+}
+
+/* Tambien se pueden crear funciones para realizar calculos */
+@function pixeles-rem($pixeles) {
+    $rem: math.div($pixeles, 16) * 1rem;
+
+    @return $rem;
+}

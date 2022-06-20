@@ -1,0 +1,16 @@
+// /* Declaración de variables */
+// $color1: steelblue;
+
+// h2 {
+//     color: $color1;
+//     font-size: 3rem;
+// }
+
+// p {
+//     color: $color1;
+// }
+/* Uso de partials, para ello, se debe nombrar el archivo con un '_' al inicio */
+@use 'reset';
+@use 'navbar';
+@use 'animaciones';
+@use 'hero';

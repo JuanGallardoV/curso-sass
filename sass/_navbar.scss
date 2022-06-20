@@ -1,0 +1,50 @@
+@use 'variables';
+@use 'mixinsfunc';
+/* Las variables pueden ser tanto, propiedades, clases, elementos, id's, o simplemente valores*/
+// $display: 'display';
+// $selector: '.nav';
+// #{$selector}
+.nav{
+    /* De esta forma se utilizan variables de otros archivos scss */
+    background-color: variables.$color;
+    /* Para referenciar al ul dentro del navbar, se puede ir "anidando", siendo más comodo que como se haria en CSS */
+    // ul {
+    //     color: #000;
+
+    //     li{
+    //         color: #fff;
+    //     }
+    // }
+    /* Con el &, referenciamos el nombre del padre, en este caso .nav */
+    &__container {
+        width: 90%;
+        margin: 0 auto;
+        height: 70px;
+        @include mixinsfunc.crear-flexbox(space-evenly);
+        /* Las variables tambien pueden ser propiedades */
+        // #{$display}: flex;
+        gap: 1em;
+        // &--active {
+        //     width: 100%;
+        // }
+    }
+
+    &__item {
+        color: white;
+        text-decoration: none;
+        
+        &--active {
+            text-decoration: underline;
+        }
+
+        // &:hover {
+        //     color: black;
+        // }
+    }
+
+    @media (min-width: 764px) {
+        &__container {
+            justify-content: flex-end;
+        }
+    }
+}

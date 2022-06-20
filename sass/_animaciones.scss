@@ -1,0 +1,28 @@
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Se puede crear un ciclo for */
+@for $iterador from 1 through 100 {
+
+    .circle-#{$iterador} {
+        animation-name: animacion#{$iterador};
+
+        @keyframes animacion#{$iterador} {
+            100% {
+                transform: translate(50% * $iterador);
+            }
+        }
+        /* Hasta crear un if validando las mismas variables */
+        @if $iterador == 5 {
+            animation-direction: alternate-reverse;
+        }
+    }
+}
